@@ -1,0 +1,21 @@
+<%- include ("partials/header.ejs") %>
+
+
+    <main>
+
+
+        <section>
+            <% if (locals.location) { %>
+                <h1><%= location %></h1>
+                <% } else { %>
+                    <h2>Welcome to the Weather App ☀️</h2>
+                    <form action="/forecast">
+                        <label for="location">Enter your location:</label>
+                        <input type="text" id="location" name="location" placeholder="Your location...">
+                        <input type="submit" value="Submit">
+                    </form>
+                    <% } %>
+        </section>
+    </main>
+
+    <%- include ("partials/footer.ejs") %>
