@@ -6,20 +6,51 @@ const app = express();
 const port = 3000;
 const API_URL = "https://api.open-meteo.com/v1/forecast";
 
+const welcomeCities = [
+  { name: "Paris", latitude: 48.8566, longitude: 2.3522 },
+  { name: "Tokyo", latitude: 35.6895, longitude: 139.6917 },
+  { name: "New York City", latitude: 40.7128, longitude: -74.0060 }
+];
+
+app.set("view engine", "ejs");
+
 app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+  const welcomeCities = [
+    { name: "Paris", latitude: 48.8566, longitude: 2.3522 },
+    { name: "Tokyo", latitude: 35.6895, longitude: 139.6917 },
+    { name: "New York City", latitude: 40.7128, longitude: -74.0060 }
+  ];
+
+  try {
+    const responses = await Promise.all(welcomeCities.map(async city => {
+      const response = await axios.get(API_URL, {
+        params: {
+          latitude: city.latitude,
+          longitude: city.longitude,
+          hourly: "temperature"
+        }
+      });
+      return response; // Return the entire response object
+    }));
+
+    res.render("index.ejs", { weatherData: responses, welcomeCities });
+  } catch (error) {
+    console.error("Error fetching weather data:", error);
+    res.status(500).send("Error fetching weather data");
+  }
+});
+
+
+app.get("/forecast", (req, res) => {
+  const location = req.body.location;
+  console.log(location);
   res.render("index.ejs");
 });
 
-app.get("/forecast", (req, res) => {
- const location = req.body.location;
- res.render("index.ejs")
- console.log(location)
-})
-
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on port ${port}`);
 });

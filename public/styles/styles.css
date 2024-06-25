@@ -23,14 +23,16 @@ main {
 section {
   background-color: #fff;
   border: #000 solid 1px;
-  height: 40vh;
-  width: 60vh;
+  min-height: 35%;
+  max-height: 50%;
+  min-width: 40%;
+  max-width: 60%;
   border-radius: 5%;
 }
 
 h2 {
     width: fit-content;
-    margin:  15px auto;
+    margin:  25px auto;
 }
 
 form {
@@ -60,4 +62,8 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #237fb7;
+}
+
+footer {
+  margin: 10px;
 }
