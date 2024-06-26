@@ -67,3 +67,10 @@ input[type="submit"]:hover {
 footer {
   margin: 10px;
 }
+
+.welcome-weather-app{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}

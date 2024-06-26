@@ -36,7 +36,7 @@ app.get("/", async (req, res) => {
       });
       return response; // Return the entire response object
     }));
-
+    console.log(responses, welcomeCities);
     res.render("index.ejs", { weatherData: responses, welcomeCities });
   } catch (error) {
     console.error("Error fetching weather data:", error);
@@ -46,9 +46,8 @@ app.get("/", async (req, res) => {
 
 
 app.get("/forecast", (req, res) => {
-  const location = req.body.location;
-  console.log(location);
-  res.render("index.ejs");
+  const location = req.query.location;
+  res.render("index.ejs", { location });
 });
 
 app.listen(port, () => {

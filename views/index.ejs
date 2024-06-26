@@ -4,12 +4,13 @@
     <main>
 
 
-        <section>         
+        <section>
             <!--In this section the if statement checks if the location exists yet, if it does not it will show the content in the else statement.-->
             <% if (locals.location) { %>
-                <h1><%= location %></h1>
+                <h1>
+                    <%= location %>
+                </h1>
                 <% } else { %>
-       
                     <h2>Welcome to the Weather App ☀️</h2>
                     <form action="/forecast">
                         <label for="location">Enter your location:</label>
@@ -17,13 +18,18 @@
                         <input type="submit" value="Submit">
                     </form>
 
-                    <div class="welcomeWeatherApp">
-                        <% weatherData.forEach(data => { %>
-                            <h6><%= weatherData.temperature %></h6>
-                        <% }); %>
-                        
+                    <div class="welcome-weather-app">
+                        <% weatherData.forEach((data, index)=> { %>
+                            <div class="container">
+                                <h6>
+                                    <%= welcomeCities[index].name %>
+                                </h6>
+                                <h6>Temperature: <%= data.data.hourly.temperature[0] %>°</h6>
+                            </div>
+                            <% }); %>
+
                     </div>
-                    <% }%>
+                    <% } %>
         </section>
 
 
