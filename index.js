@@ -46,7 +46,7 @@ app.get("/", async (req, res) => {
 
 app.get("/forecast", (req, res) => {
   const location = req.query.location;
-  res.render("index.ejs", { location });
+  res.render("weather.ejs", { location });
 });
 
 app.listen(port, () => {
