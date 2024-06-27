@@ -1,9 +1,5 @@
 <%- include ("partials/header.ejs") %>
 
-
-    <main>
-
-
         <section>
             <!--In this section the if statement checks if the location exists yet, if it does not it will show the content in the else statement.-->
             <% if (locals.location) { %>
@@ -11,6 +7,7 @@
                     <%= location %>
                 </h1>
                 <% } else { %>
+
                     <h2>Welcome to the Weather App ☀️</h2>
                     <form action="/forecast">
                         <label for="location">Enter your location:</label>
@@ -24,15 +21,12 @@
                                 <h6>
                                     <%= welcomeCities[index].name %>
                                 </h6>
-                                <h6>Temperature: <%= data.data.hourly.temperature[0] %>°</h6>
+                                <h6>Temperature: <%= data.hourly.temperature[0] %>°</h6>
                             </div>
                             <% }); %>
 
                     </div>
                     <% } %>
         </section>
-
-
-    </main>
 
     <%- include ("partials/footer.ejs") %>

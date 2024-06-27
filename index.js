@@ -26,23 +26,22 @@ app.get("/", async (req, res) => {
   ];
 
   try {
-    const responses = await Promise.all(welcomeCities.map(async city => {
-      const response = await axios.get(API_URL, {
-        params: {
-          latitude: city.latitude,
-          longitude: city.longitude,
-          hourly: "temperature"
-        }
-      });
-      return response; // Return the entire response object
-    }));
-    console.log(responses, welcomeCities);
-    res.render("index.ejs", { weatherData: responses, welcomeCities });
+    const responses = await axios.get(API_URL, {
+      params: {
+        latitude: welcomeCities.map(city => city.latitude).join(","),
+        longitude: welcomeCities.map(city => city.longitude).join(","),
+        hourly: "temperature"
+      }
+    });
+
+    console.log(responses.data, welcomeCities);
+    res.render("index.ejs", { weatherData: responses.data, welcomeCities });
   } catch (error) {
     console.error("Error fetching weather data:", error);
     res.status(500).send("Error fetching weather data");
   }
 });
+
 
 
 app.get("/forecast", (req, res) => {
