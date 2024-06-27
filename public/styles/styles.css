@@ -20,7 +20,7 @@ main {
     height: 100%;
   }
 
-section {
+.landing-page {
   background-color: #fff;
   border: #000 solid 1px;
   min-height: 35%;

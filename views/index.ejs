@@ -1,32 +1,27 @@
 <%- include ("partials/header.ejs") %>
 
-        <section>
-            <!--In this section the if statement checks if the location exists yet, if it does not it will show the content in the else statement.-->
-            <% if (locals.location) { %>
-                <h1>
-                    <%= location %>
-                </h1>
-                <% } else { %>
+    <section class="landing-page">
+        <!--This Section will greet the user when they open up this Weather App-->
 
-                    <h2>Welcome to the Weather App ☀️</h2>
-                    <form action="/forecast">
-                        <label for="location">Enter your location:</label>
-                        <input type="text" id="location" name="location" placeholder="Your location...">
-                        <input type="submit" value="Submit">
-                    </form>
+        <h2>Welcome to the Weather App ☀️</h2>
+        <form action="/forecast">
+            <label for="location">Enter your location:</label>
+            <input type="text" id="location" name="location" placeholder="Your location...">
+            <input type="submit" value="Submit">
+        </form>
 
-                    <div class="welcome-weather-app">
-                        <% weatherData.forEach((data, index)=> { %>
-                            <div class="container">
-                                <h6>
-                                    <%= welcomeCities[index].name %>
-                                </h6>
-                                <h6>Temperature: <%= data.hourly.temperature[0] %>°</h6>
-                            </div>
-                            <% }); %>
+        <div class="welcome-weather-app">
+            <% weatherData.forEach((data, index)=> { %>
+                <div class="container">
+                    <h6>
+                        <%= welcomeCities[index].name %>
+                    </h6>
+                    <h6>Temperature: <%= data.hourly.temperature[0] %>°</h6>
+                </div>
+                <% }); %>
 
-                    </div>
-                    <% } %>
-        </section>
+        </div>
+
+    </section>
 
     <%- include ("partials/footer.ejs") %>
