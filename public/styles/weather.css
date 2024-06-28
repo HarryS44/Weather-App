@@ -1,12 +1,12 @@
-section{
-    height: 80%;
-    width: 90%;
-    border: solid 1px #000;
-    border-radius: 50px;
+.user-input-weather {
+  height: 80%;
+  width: 90%;
+  border: solid 1px #000;
+  border-radius: 50px;
 }
 
-h1{
-    font-size: 3rem;
-    margin:  1rem auto;
-    width: fit-content;
+h1 {
+  font-size: 3rem;
+  margin: 1rem auto;
+  width: fit-content;
 }
