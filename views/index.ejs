@@ -16,7 +16,7 @@
                     <h6>
                         <%= welcomeCities[index].name %>
                     </h6>
-                    <h6>Temperature: <%= data.hourly.temperature[0] %>°</h6>
+                    <h6>Temperature: <%= data.hourly.temperature[data.hourly.temperature.length - 1] %> °</h6>
                 </div>
                 <% }); %>
 
