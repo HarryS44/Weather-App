@@ -1,21 +1,47 @@
-<%- include ("partials/header.ejs") %>
-<section class="user-input-weather">
-    <h1><%= location %></h1>
+<%- include("partials/header.ejs") %>
+<main class="user-input-weather">
+    <section class="user-input-results">
+        <h1 class="location">
+            <%= location %>
+        </h1>
 
-    <div class="temperature-box">
-        <h6 class="temperature">Temperature:<%= weather.hourly.temperature[0] %> °</h6>
-    </div>
-    <div class="uv-box">
-        <h6 class="temperature">UV:</h6>
-    </div>
-    <div class="chance-of-precipitation-box">
-        <h6 class="temperature">Chance of Precipitation:</h6>
-    </div>
-    <div class="wind-speed-box">
-        <h6 class="wind-speed">Temperature:</h6>
-    </div>
-    <div class="wind-direction-box">
-        <h6 class="wind-direction">Temperature:</h6>
-    </div>
-</section>
-<%- include ("partials/footer.ejs") %>
+        <% if (locals.weatherData) { %>
+            <div>
+                <h2 class="temperature">Maximum Temperature</h>
+                    <h4>
+                        <%= Math.round(weatherData.daily.temperature_2m_max[0]) %>° C
+                    </h4>
+            </div>
+            <div>
+                <h2 class="temperature">Minimum Temperature</h>
+                    <h4>
+                        <%= Math.round(weatherData.daily.temperature_2m_min[0]) %>° C
+                    </h4>
+            </div>
+            <div>
+                <h6 class="uv">UV: <%= weatherData.daily.uv_index_max[0] %>
+                </h6>
+                <p>The <a href="https://www.who.int/health-topics/ultraviolet-radiation#tab=tab_2" target="_blank">World Health Organization (WHO)</a> recommends that you wear sun protection when the UV is above 3.</p>
+            </div>
+            <div>
+                <h6 class="wind-speed">Wind Speed: <%= weatherData.hourly.wind_speed_10m[0] %> mph</h6>
+            </div>
+            <div>
+                <h6 class="visibility">Visibility: <%= Math.round(weatherData.hourly.visibility[0] * 0.000621371)%>
+                        Miles</h6>
+            </div>
+            <% } else { %>
+                <div>
+                    <h6 class="error">
+                        <%= error %>
+                    </h6>
+                </div>
+                <% } %>
+    </section>
+    </main>
+
+    <%- include("partials/footer.ejs") %>
+
+        <!--temp,windspeed,wdirec,airplu?,uv,-->
+
+        <!--The bug with not rendering has been fixed, make sure to read repsonse properly next time-->

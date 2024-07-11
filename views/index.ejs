@@ -1,8 +1,6 @@
-<%- include ("partials/header.ejs") %>
-
+<%- include("partials/header.ejs") %>
+<main>
     <section class="landing-page">
-        <!--This Section will greet the user when they open up this Weather App-->
-
         <h2>Welcome to the Weather App ☀️</h2>
         <form action="/forecast" method="POST">
             <label for="location">Enter your location:</label>
@@ -16,12 +14,14 @@
                     <h6>
                         <%= welcomeCities[index].name %>
                     </h6>
-                    <h6>Temperature: <%= data.hourly.temperature[data.hourly.temperature.length - 1] %> °</h6>
+                        <% if (data.hourly.temperature_2m?.[0] !==undefined) { %>
+                            <h6>Temperature: <%= data.hourly.temperature_2m?.[0] %> °C</h6>
+                            <% } else { %>
+                                <h6>Temperature: Data not available</h6>
+                                <% } %>
                 </div>
                 <% }); %>
-
         </div>
-
     </section>
-
-    <%- include ("partials/footer.ejs") %>
+</main>
+    <%- include("partials/footer.ejs") %>

@@ -1,12 +1,38 @@
-.user-input-weather {
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+.user-input-weather{
+   background: linear-gradient(to bottom, #DEF9C4, #9CDBA6, #50B498, #468585);
+}
+
+.user-input-results {
   height: 80%;
   width: 90%;
+ 
   border: solid 1px #000;
   border-radius: 50px;
 }
 
-h1 {
+.location{
   font-size: 3rem;
   margin: 1rem auto;
   width: fit-content;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.user-input-weather > .box > h6, h4{
+  margin: 1.5rem auto;
+  width: fit-content;
+  font-family: "Urbanist", sans-serif;
+}
+
+.box {
+  height: 15%;
+  width: 15%;
+  border: solid 1px #000;
+  margin-left: 10px;
+  border-radius: 15px;
 }
