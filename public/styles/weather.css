@@ -1,38 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 
-.user-input-weather{
-   background: linear-gradient(to bottom, #DEF9C4, #9CDBA6, #50B498, #468585);
-}
-
 .user-input-results {
-  height: 80%;
-  width: 90%;
- 
-  border: solid 1px #000;
-  border-radius: 50px;
+  height: 86%;
+  width: 50%;
+  border: solid 1px #ccc;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin: 20px auto;
+  font-family: 'Urbanist', sans-serif;
 }
 
-.location{
+.location {
   font-size: 3rem;
   margin: 1rem auto;
   width: fit-content;
+  color: #333;
+  font-weight: 700;
 }
 
 a {
-  color: #000;
+  color: #007bff;
   text-decoration: none;
 }
 
-.user-input-weather > .box > h6, h4{
-  margin: 1.5rem auto;
+a:hover {
+  text-decoration: underline;
+}
+
+.user-input-weather > .box > h6, h4 {
+  margin: 1rem auto;
   width: fit-content;
   font-family: "Urbanist", sans-serif;
+  color: #555;
 }
 
 .box {
-  height: 15%;
-  width: 15%;
-  border: solid 1px #000;
-  margin-left: 10px;
+  max-height: 20%;
+  min-width: 20%;
+  padding: 1rem;
+  border: solid 1px #ccc;
+  margin: 10px;
   border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-input-flex {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.hidden {
+  display: none;
 }
